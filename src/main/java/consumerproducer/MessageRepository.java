@@ -1,10 +1,15 @@
 package consumerproducer;
 
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
+
 public class MessageRepository {
     private String message;
     private boolean hasMessage = false;
 
-    public synchronized String read() {
+    private final Lock lock = new ReentrantLock();
+
+    public String read() {
 
         while (!hasMessage) {
             try {
