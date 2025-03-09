@@ -5,13 +5,14 @@ public class CustomThread extends Thread {
     @Override
     public void run() {
 
-        for (int idx = 1; idx <= 5; ++idx) {
+        for (int index = 1; index <= 5; ++index) {
             System.out.print(" 1 ");
             try {
-                Thread.sleep(500);
+                Thread.sleep(500); // Sleep for 500 milliseconds
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
         }
     }
+
 }

@@ -1,26 +1,26 @@
 package threads;
+
 import java.util.concurrent.TimeUnit;
 
 public class Main {
 
     public static void main(String[] args) {
+        clearConsole();
 
         var currentThread = Thread.currentThread();
         System.out.println(currentThread.getClass().getName());
 
-        System.out.println(currentThread);
-        printThreadState(currentThread);
+        ThreadUtils.printThreadState(currentThread);
 
-        currentThread.setName("Main Thread");
+        currentThread.setName("MainGuy");
         currentThread.setPriority(Thread.MAX_PRIORITY);
-        printThreadState(currentThread);
+        ThreadUtils.printThreadState(currentThread);
 
         CustomThread customThread = new CustomThread();
-//        customThread.run(); // run method runs synchronously
-        customThread.start(); // start method runs asynchronously
+        customThread.start();
 
         Runnable runnable = () -> {
-            for (int idx = 1; idx <= 8; ++idx) {
+            for (int index = 1; index <= 8; ++index) {
                 System.out.print(" 2 ");
                 try {
                     TimeUnit.MILLISECONDS.sleep(250);
@@ -33,28 +33,29 @@ public class Main {
         Thread thread = new Thread(runnable);
         thread.start();
 
-        for (int idx = 1; idx <= 3; ++idx) {
+        for (int index = 1; index <= 3; ++index) {
             System.out.print(" 0 ");
             try {
-                TimeUnit.SECONDS.sleep(1);
+             TimeUnit.SECONDS.sleep(1);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
         }
     }
 
-    public static void printThreadState(Thread thread) {
+    /**
+     * MIN_PRIORITY = 1
+     * NORM_PRIORITY = 5
+     * MAX_PRIORITY = 10
+     *
+     * High priority threads have a better chance of being scheduled, by a
+     * thread scheduler, than low priority threads. However, priority behavior can vary
+     * across different operating systems and JVM implementations.
+     */
 
-        System.out.println("--------------------------");
-        System.out.println("Thread ID: " + thread.threadId());
-        System.out.println("Thread Name: " + thread.getName());
-        System.out.println("Thread State: " + thread.getState());
-        System.out.println("Thread Priority: " + thread.getPriority());
-        System.out.println("Thread Group: " + thread.getThreadGroup());
-        System.out.println("Thread is Alive: " + thread.isAlive());
-        System.out.println("Thread is Daemon: " + thread.isDaemon());
-        System.out.println("Thread is Interrupted: " + thread.isInterrupted());
-        System.out.println("----------------------------");
-
+    public static void clearConsole() {
+        System.out.print("\033[H\033[2J");
+        System.out.flush();
     }
+
 }
