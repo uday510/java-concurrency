@@ -1,6 +1,5 @@
 package consumerproducer;
 
-import consumerproducer.MessageRepository;
 
 import java.util.Random;
 
