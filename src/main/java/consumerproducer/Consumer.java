@@ -1,11 +1,11 @@
 package consumerproducer;
 
-import deadlock.MessageRepository;
+import consumerproducer.MessageRepository;
 
 import java.util.Random;
 
 public class Consumer implements Runnable {
-    private final MessageRepository incomingMessage;
+    private final consumerproducer.MessageRepository incomingMessage;
 
     public Consumer(MessageRepository messageRepository) {
         this.incomingMessage = messageRepository;

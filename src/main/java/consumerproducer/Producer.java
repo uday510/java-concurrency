@@ -1,11 +1,10 @@
 package consumerproducer;
 
-import deadlock.MessageRepository;
 
 import java.util.Random;
 
 public class Producer implements Runnable {
-    private final deadlock.MessageRepository outgoingMessages;
+    private final consumerproducer.MessageRepository outgoingMessages;
     private final String text = """
             Humpty Dumpty sat on a wall,
             Humpty Dumpty had a great fall,
