@@ -45,4 +45,13 @@ public class RaceConditionLongAdder {
         System.out.println("Used memory after  = " + endUsedMem / (1024 * 1024) + " MB");
         System.out.println("Memory increased by = " + (endUsedMem - startUsedMem) / (1024 * 1024) + " MB");
     }
+
+    /** @result
+     * Threads = 1000
+     * Final count = 1000000000
+     * Time took = 1726 ms
+     * Used memory before = 1 MB
+     * Used memory after  = 2 MB
+     * Memory increased by = 1 MB
+     */
 }
