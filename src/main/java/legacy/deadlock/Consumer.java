@@ -1,10 +1,9 @@
-package consumerproducer;
-
+package legacy.deadlock;
 
 import java.util.Random;
 
 public class Consumer implements Runnable {
-    private final consumerproducer.MessageRepository incomingMessage;
+    private final MessageRepository incomingMessage;
 
     public Consumer(MessageRepository messageRepository) {
         this.incomingMessage = messageRepository;
@@ -23,6 +22,7 @@ public class Consumer implements Runnable {
             latestMessage = incomingMessage.read();
             System.out.println(latestMessage);
         } while (!latestMessage.equals("Finished"));
+
     }
 
 }

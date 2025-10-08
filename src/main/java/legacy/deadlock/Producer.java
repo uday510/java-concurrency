@@ -1,4 +1,4 @@
-package deadlock;
+package legacy.deadlock;
 
 import java.util.Random;
 

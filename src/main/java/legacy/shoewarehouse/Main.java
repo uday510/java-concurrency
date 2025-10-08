@@ -1,4 +1,4 @@
-package shoewarehouse;
+package legacy.shoewarehouse;
 
 import java.util.Random;
 

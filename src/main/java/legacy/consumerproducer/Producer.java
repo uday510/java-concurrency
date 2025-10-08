@@ -1,9 +1,9 @@
-package consumerproducer;
+package legacy.consumerproducer;
 
 import java.util.Random;
 
 public class Producer implements Runnable {
-    private final consumerproducer.MessageRepository outgoingMessages;
+    private final MessageRepository outgoingMessages;
     private final String text = """
             Humpty Dumpty sat on a wall,
             Humpty Dumpty had a great fall,

@@ -1,4 +1,4 @@
-package threads;
+package legacy.threads;
 
 public class RunningThreads {
 

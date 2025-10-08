@@ -1,4 +1,5 @@
-package deadlock;
+package legacy.consumerproducer;
+
 
 import java.util.Random;
 
@@ -22,7 +23,6 @@ public class Consumer implements Runnable {
             latestMessage = incomingMessage.read();
             System.out.println(latestMessage);
         } while (!latestMessage.equals("Finished"));
-
     }
 
 }

@@ -1,4 +1,4 @@
-package threads;
+package legacy.threads;
 
 import java.util.logging.Logger;
 

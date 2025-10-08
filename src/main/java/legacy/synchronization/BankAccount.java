@@ -1,4 +1,4 @@
-package synchronization;
+package legacy.synchronization;
 
 public class BankAccount {
 

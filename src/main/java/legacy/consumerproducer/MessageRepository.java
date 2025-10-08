@@ -1,4 +1,4 @@
-package consumerproducer;
+package legacy.consumerproducer;
 
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Lock;

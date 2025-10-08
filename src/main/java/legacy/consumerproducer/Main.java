@@ -1,11 +1,11 @@
-package consumerproducer;
+package legacy.consumerproducer;
 
 public class Main {
 
     public static void main(String[] args) {
-        var messageRepository = new consumerproducer.MessageRepository();
-        Thread consumer = new Thread(new consumerproducer.Consumer(messageRepository), "consumer");
-        Thread producer = new Thread(new consumerproducer.Producer(messageRepository), "producer");
+        var messageRepository = new MessageRepository();
+        Thread consumer = new Thread(new Consumer(messageRepository), "consumer");
+        Thread producer = new Thread(new Producer(messageRepository), "producer");
 
         producer.setUncaughtExceptionHandler((thread, exception) -> {
             System.out.print("Producer had exception: " + exception);

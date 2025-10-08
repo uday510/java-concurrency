@@ -1,4 +1,4 @@
-package multithreading;
+package legacy.multithreading;
 
 public enum ThreadColor {
     ANSI_RESET("\u001B[0m"),

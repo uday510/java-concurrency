@@ -1,6 +1,4 @@
-package deadlock;
-
-import java.util.concurrent.TimeUnit;
+package legacy.deadlock;
 
 public class Main {
 
