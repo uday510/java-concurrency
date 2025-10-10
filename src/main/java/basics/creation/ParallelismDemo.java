@@ -1,5 +1,7 @@
 package basics.creation;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -10,16 +12,21 @@ public class ParallelismDemo {
     static final long BILLION = 1_000_000_000L;
 
     private static long heavyComputation(int id) {
-        System.out.println(Thread.currentThread().getName() + " finished at " + System.currentTimeMillis());
+        long start = System.currentTimeMillis();
+        System.out.println(Thread.currentThread().getName() + " started task " + id + " at " + start);
+
         long sum = 0;
         for (long i = 0; i < BILLION; i++) {
             sum += i;
         }
-        System.out.println(Thread.currentThread().getName() + " finished at " + System.currentTimeMillis());
+
+        long end = System.currentTimeMillis();
+        System.out.println(Thread.currentThread().getName() + " finished task " + id + " at " + end +
+                " (duration: " + (end - start) + " ms)");
         return sum;
     }
 
-    public static void main(String[] args) throws InterruptedException, ExecutionException  {
+    public static void main(String[] args) throws InterruptedException, ExecutionException {
         long start = System.currentTimeMillis();
 
         int cores = Runtime.getRuntime().availableProcessors();
@@ -27,14 +34,19 @@ public class ParallelismDemo {
 
         ExecutorService executor = Executors.newFixedThreadPool(cores);
 
-        Future<Long> f1 = executor.submit(() -> heavyComputation(1));
-        Future<Long> f2 = executor.submit(() -> heavyComputation(2));
+        List<Future<Long>> futures = new ArrayList<>();
+        for (int i = 1; i <= cores; i++) {
+            int id = i;
+            futures.add(executor.submit(() -> heavyComputation(id)));
+        }
 
-        f1.get();
-        f2.get();
+        for (Future<Long> f : futures) {
+            f.get();
+        }
 
         executor.shutdown();
         long end = System.currentTimeMillis();
+
         System.out.println("Total time (ms): " + (end - start));
     }
 }
