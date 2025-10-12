@@ -51,12 +51,10 @@ public class ThreadStatesDemo {
 
         Thread t = new Thread(task, "Worker-1");
 
-        // NEW state
         printState(GRAY, "Before start:", t.getState());
 
         t.start();
 
-        // 🩶 Start monitoring thread states in real time
         new Thread(() -> {
             while (t.getState() != Thread.State.TERMINATED) {
                 printState(GRAY, "[Monitor]", t.getState());
