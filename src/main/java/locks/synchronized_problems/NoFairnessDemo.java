@@ -1,4 +1,4 @@
-package locks.synchronizedProblems;
+package locks.synchronized_problems;
 
 public class NoFairnessDemo {
 

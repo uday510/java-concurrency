@@ -1,4 +1,4 @@
-package locks.synchronizedProblems;
+package locks.synchronized_problems;
 
 public class NoInterruptDemo {
     private final Object lock = new Object();

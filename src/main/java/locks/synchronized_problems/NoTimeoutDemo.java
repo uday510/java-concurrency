@@ -1,6 +1,4 @@
-package locks.synchronizedProblems;
-
-import java.util.Timer;
+package locks.synchronized_problems;
 
 public class NoTimeoutDemo {
     private final Object lock = new Object();
