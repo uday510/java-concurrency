@@ -2,7 +2,7 @@ package pblms;
 
 import java.util.concurrent.*;
 
-public class ProducerConsumer {
+public class ProducerConsumerWithSynchronized {
 
     public static void main(String[] args) throws InterruptedException, ExecutionException {
         final BlockingQueue<Integer> queue = new BlockingQueue<>(5);
